@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.d.mapper.Mapper">
+
+ 	
+ 	<select id="queryPersonByName" parameterType="String" resultType="com.d.entity.Person">
+ 		select * from person where name = #{name}
+ 	</select>
+ 	
+ 	<insert id="addPerson" parameterType="com.d.entity.Person" keyColumn="id" >
+ 		insert into person(id,name,sex,age,nationame,idcard,level) value (#{id},#{name},#{sex},#{age},#{nationame},#{idcard},#{level})
+ 	</insert>
+ 	
+ 	<update id="updatePerson">
+ 		update person set name =#{name},age=#{age} where id=#{id}
+ 	</update>
+ 	
+ 	<delete id="deletePersonByName">
+ 		delete from person where name=#{name}
+ 	</delete>
+ 	
+ 	
+</mapper>
